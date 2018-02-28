@@ -10,7 +10,6 @@ function multiply(number1, number2) {
 
 function divide(number1, number2) {
 	if (number2 === 0) {
-		alert("Cannot divide by zero");
 	}
 	else {
 		return number1 / number2;
@@ -74,17 +73,24 @@ function test(x) {
 
 
 	else if (x === "=") {
+		console.log(arrayNumbers)
 		if (arrayNumbers[1] === "+") {
 			document.getElementById("calcul").innerHTML = add(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
 		}
 		else if (arrayNumbers[1] === "-") {
-			document.getElementById("calcul").innerHTML = add(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
+			document.getElementById("calcul").innerHTML = substract(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
 		}
 		else if (arrayNumbers[1] === "x") {
-			document.getElementById("calcul").innerHTML = add(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
+			document.getElementById("calcul").innerHTML = multiply(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
 		}
 		else if (arrayNumbers[1] === "/") {
-			document.getElementById("calcul").innerHTML = add(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
+			if (arrayNumbers[2] === "0"){
+				alert("Cannot divide by zero");
+				document.getElementById("calcul").innerHTML = "0";
+			}
+			else {
+			document.getElementById("calcul").innerHTML = divide(Number(arrayNumbers[0]),Number(arrayNumbers[2]));
+			}
 		}
 		arrayNumbers = []
 	}
